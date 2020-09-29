@@ -61,31 +61,31 @@ df.dtypes
 df.describe()
 
 
-# In[68]:
+# In[1]:
 
 
-for col in ['monthly_charges', 'tenure', 'total_charges']:
-    plt.hist(df[col])
-    plt.title(col)
-    plt.show()
+# for col in ['monthly_charges', 'tenure', 'total_charges']:
+#     plt.hist(df[col])
+#     plt.title(col)
+#     plt.show()
 
 
-# In[39]:
+# In[2]:
 
 
-sns.boxplot(data=df[['monthly_charges']])
+#sns.boxplot(data=df[['monthly_charges']])
 
 
-# In[41]:
+# In[3]:
 
 
-sns.boxplot(data=df[['tenure']])
+#sns.boxplot(data=df[['tenure']])
 
 
-# In[43]:
+# In[4]:
 
 
-sns.boxplot(data=df[['total_charges']])
+#sns.boxplot(data=df[['total_charges']])
 
 
 # In[44]:
@@ -119,6 +119,17 @@ df.head()
 
 df = wrangle_telco(df)
 df
+
+
+# In[5]:
+
+
+def wrangle_grades():
+    grades = pd.read_csv("student_grades.csv")
+    grades.drop(columns="student_id", inplace=True)
+    grades.replace(r"^\s*$", np.nan, regex=True, inplace=True)
+    df = grades.dropna().astype("int")
+    return df
 
 
 # In[ ]:
